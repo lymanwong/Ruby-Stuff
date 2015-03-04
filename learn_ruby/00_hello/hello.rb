@@ -4,7 +4,11 @@ end
 
 
 def greet(name)
-  "Hello, #{name}!"
+  if (name == "Darth") || name == "Voldemort" || name == "Lex Luthor"
+    "Go away, #{name}!"
+  else
+    "Hello, #{name}!"
+  end
 end
 
 # puts "What is your name?"
