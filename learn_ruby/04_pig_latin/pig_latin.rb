@@ -1,37 +1,40 @@
-def translate(string)
-  word = string.split("")
-  first_single_word = word[0].split(" ")
-  second_single_word = word[1].split(" ")
-  third_single_word = word[3].split(" ")
+def translate(regular_word)
+  translated_word = []
   ending = "ay"
-  vowels = ["a","e","i","o","u"]
-  words = string.split(" ")
-  first_word = ""
-  second_word = ""
-  new_string = []
-  if words.count > 1
-    words.each do |mulword|
-      if (mulword[0] == "a" || mulword[0] == "e" || mulword[0] == "i" || mulword[0] == "o" || mulword[0] == "u")
-      # if first_mul_word.any?{|x| vowels.include?(x)}
-      first_word = mulword + ending
-      new_string << first_word
+  split_words = regular_word.split(" ")
+  split_words.each do |word|
+    first_letter = word[0]
+    first_two = word[0..1]
+    first_three = word[0..2]
+    if word[0] == "a" || word[0] == "e" || word[0] == "i" || word[0] == "o" || word[0] == "u"
+      translated_word << word + ending
+    elsif first_two == "ch"
+      translated_word << word[2..-1] + first_two + ending
+    elsif first_two == "br"
+      translated_word << word[2..-1] + first_two + ending
+    elsif first_three == "thr"
+      translated_word << word[3..-1] + first_three + ending
+    elsif first_two == "th"
+      translated_word << word[2..-1] + first_two + ending
+    elsif first_two == "qu"
+      translated_word << word[2..-1] + first_two + ending
+    elsif first_three == "sch"
+      translated_word << word[3..-1] + first_three + ending
+    elsif first_three == "squ"
+      translated_word << word[3..-1] + first_three + ending
     else
-      second_word = mulword[1..-1] + mulword[0] + "ay"
-      new_string << second_word
+      translated_word << word[1..-1] + first_letter + ending
     end
   end
-  return new_string.join(" ")
-else
-  if first_single_word.any?{|x| vowels.include?(x)}
-    return string + ending
-  elsif word[0] == "q"
-    return (word[2..-1] + word[0..1]).join("") + "ay"
-  elsif second_single_word.any?{|x| vowels.include?(x)}
-    return (word[1..-1] + word[0...1]).join("") + "ay"
-  elsif third_single_word.any?{|x| vowels.include?(x)}
-    return (word[3..-1] + word[0..2]).join("") + "ay"
-  else
-    return (word[2..-1] + word[0..1]).join("") + "ay"
-  end
+  return translated_word.join(" ")
 end
-end
+
+# p translate("apple") == "appleay"
+# p translate("banana") == "ananabay"
+# p translate("cherry") == "errychay"
+# p translate("eat pie") == "eatay iepay"
+# p translate("three") == "eethray"
+# p translate("school") == "oolschay"
+# p translate("square") == "aresquay"
+# p translate("quiet") == "ietquay"
+# p translate("the quick brown fox") == "ethay ickquay ownbray oxfay"
