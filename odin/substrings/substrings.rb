@@ -1,8 +1,8 @@
 def substrings(string, dictionary)
-  word_count = Hash.new 0
+  substring_count = Hash.new 0
   dictionary.each do |word|
     if string.include? word
-      word_count[word] += 1
+      substring_count[word] += 1
     end
   end
   return word_count
