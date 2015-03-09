@@ -5,7 +5,7 @@ def substrings(string, dictionary)
       substring_count[word] += 1
     end
   end
-  return word_count
+  return substring_count
 end
 
 dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
