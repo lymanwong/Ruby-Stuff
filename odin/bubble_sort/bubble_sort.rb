@@ -24,12 +24,22 @@ def bubble_sort_by(array)
   element2 = ""
   counter = 0
   while counter < array.length - 1
-    if array[counter].length > array[counter + 1].length
+    if array[counter].length - array[counter + 1].length > 0
       element1 = array[counter]
       element2 = array[counter + 1]
       array[counter] = element2
       array[counter + 1] = element1
       counter = 0
+    elsif array[counter].length - array[counter + 1].length == 0
+      if array[counter] > array[counter + 1]
+        element1 = array[counter]
+        element2 = array[counter + 1]
+        array[counter] = element2
+        array[counter + 1] = element1
+        counter = 0
+      else
+        counter += 1
+      end
     else
       counter += 1
     end
@@ -41,5 +51,5 @@ p bubble_sort_by(["hi","hello","hey"])
 # => ["hi", "hey", "hello"]
 
 
-p bubble_sort_by(["hi","hello","hey","yo","sup","howdy"])
-# => ["hi", "yo", "hey", "sup", "hello", "howdy"]
+p bubble_sort_by(["hi","hello","hey","yo","sup", "sap","howdy"])
+# => ["hi", "yo", "hey", "sap", "sup", "hello", "howdy"]
