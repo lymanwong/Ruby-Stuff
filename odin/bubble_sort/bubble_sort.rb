@@ -16,40 +16,22 @@ def bubble_sort(array)
   return array
 end
 
-p bubble_sort([4,3,78,2,0,2])
-# => [0,2,2,3,4,78]
 
 def bubble_sort_by(array)
-  element1 = ""
-  element2 = ""
-  counter = 0
-  while counter < array.length - 1
-    if array[counter].length - array[counter + 1].length > 0
-      element1 = array[counter]
-      element2 = array[counter + 1]
-      array[counter] = element2
-      array[counter + 1] = element1
-      counter = 0
-    elsif array[counter].length - array[counter + 1].length == 0
-      if array[counter] > array[counter + 1]
-        element1 = array[counter]
-        element2 = array[counter + 1]
-        array[counter] = element2
-        array[counter + 1] = element1
-        counter = 0
-      else
-        counter += 1
+  word_swap = true
+  while word_swap do
+    word_swap = false
+    for num in 1...array.length
+      if yield(array[num], array[num-1]) < 0
+        array[num], array[num-1] = array[num-1], array[num]
+        word_swap = true
       end
-    else
-      counter += 1
     end
   end
-  return array
+  p array
 end
 
-p bubble_sort_by(["hi","hello","hey"])
-# => ["hi", "hey", "hello"]
 
-
-p bubble_sort_by(["hi","hello","hey","yo","sup", "sap","howdy"])
-# => ["hi", "yo", "hey", "sap", "sup", "hello", "howdy"]
+bubble_sort_by(["hi","hello","hey"]) do |right,left|
+  right.length - left.length
+end
