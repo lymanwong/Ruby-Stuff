@@ -1,0 +1,6 @@
+def mangling_sentence(sentence)
+  arr = sentence.downcase.split(' ')
+  return arr
+end
+
+p mangling_sentence('hello world') == 'ehllo dlorw'
