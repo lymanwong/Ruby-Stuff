@@ -1,6 +1,13 @@
 def mangling_sentence(sentence)
+  #make sentence into an array of strings
+  new_word = []
   arr = sentence.downcase.split(' ')
-  return arr
+  #iterate over each word
+  arr.each do |word|
+  #split the word into letters and add it to the array sorted
+    new_word << word.split('').sort.join('')
+  end
+  new_word.join(' ')
 end
 
 p mangling_sentence('hello world') == 'ehllo dlorw'
