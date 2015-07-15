@@ -16,13 +16,14 @@ def in_array(arr1,arr2)
       end
     end
   end
-  p collection.uniq
+  return collection.uniq
 end
 
 
-# a1 = ["arp", "live", "strong"]
-# a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
-a1 = ["tarp", "mice", "bull"]
+a1 = ["arp", "live", "strong"]
 a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
+b1 = ["tarp", "mice", "bull"]
+b2 = ["lively", "alive", "harp", "sharp", "armstrong"]
 
-in_array(a1,a2)
+p in_array(a1,a2) == ["arp", "live", "strong"] #true
+p in_array(b1,b2) == [] #true
