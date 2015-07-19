@@ -1,3 +1,7 @@
+=begin
+The goal of this app is to translate a string that was coded with rot13. The simple Caesar-cypher encryption that replaces each English letter with the one 13 places forward or back along the alphabet, so that "The butler did it" becomes "Gur ohgyre qvq vg" Most Usenet news reading and posting programs include a rot13 feature. It is used to enclose the text in a sealed wrapper that the reader must choose to open - e.g. for posting things that might offend some readers, or spoilers. A major advantage of rot13 over rot(N) for other N is that it is self-inverse, so the same code can be used for encoding and decoding.
+=end
+
 # def decoder(message)
 #   sub_word_array = []
 #   phrase = []
@@ -33,8 +37,7 @@ def decoder(message)
         letter.gsub!(letter, (letter.ord-13).chr)
     end
   end
-  p translated
 end
 
-decoder("Fraq hf gur pbqr lbh hfrq gb qrpbqr guvf zrffntr")
-#"Send us the code you used to decode this message"
+p decoder("Fraq hf gur pbqr lbh hfrq gb qrpbqr guvf zrffntr") == "Send us the code you used to decode this message"
+p decoder("Gur ohgyre qvq vg") == "The butler did it"
