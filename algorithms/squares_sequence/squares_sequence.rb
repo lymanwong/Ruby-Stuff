@@ -9,11 +9,17 @@ squares(3,3)=[3,9,81]
 def squares(x,n)
   num = x
   array = []
-  while array.length < n-1
-    num = num * num
-    array << num
+  if n <= 0
+    return array
+  else
+    array << x
+    while array.length < n
+      num = num * num
+      array << num
+    end
   end
   print array
 end
 
-squares(2,5)
+squares(2,5)==[2,4,16,256,65536]
+squares(3,3)==[3,9,81]
