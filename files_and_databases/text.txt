@@ -1,0 +1,3 @@
+Joe Montana,Quarterback,Male,25
+Will Clark,First_base,Male,28
+Chris Mullin,Forward,Male,23
