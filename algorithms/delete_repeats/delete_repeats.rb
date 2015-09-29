@@ -15,14 +15,12 @@ class Dedupe
     @string = string.split('').each do |letter|
       @counts[letter] += 1
     end
-     @counts
   end
 
   def delete_repeats(counts)
     @string.each do |letter|
       while @counts[letter] > 1
-        location = @string.index(letter)
-        @string.delete_at(location)
+        @string.delete_at(@string.index(letter))
         @counts[letter] -= 1
       end
     end
