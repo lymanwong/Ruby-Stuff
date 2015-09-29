@@ -6,9 +6,6 @@ class Dungeon
     @rooms = []
   end
 
-
-  Room = Struct.new(:reference, :name, :description, :connections)
-
   def add_room(reference, name, description, connections)
     @rooms << Room.new(reference, name, description, connections)
   end
