@@ -9,17 +9,23 @@ Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
 =end
 
 
+# class String
+#   def toJadenCase(string)
+#   	newString = Array.new
+#   	string.split(" ").each do |word|
+#   		newString << word.capitalize
+#  	end
+#  	return newString.join(" ")
+#   end
+# end
+
 class String
-  def toJadenCase(string)
-  	newString = Array.new
-  	string.split(" ").each do |word|
-  		newString << word.capitalize
- 	end
- 	return newString.join(" ")
+  def toJadenCase
+    # ...
   end
 end
 
-a = String.new
-str = "How can mirrors be real if our eyes aren't real";
-p a.toJadenCase(str)
-#"How Can Mirrors Be Real If Our Eyes Aren't Real" 
+# a = String.new
+# str = "How can mirrors be real if our eyes aren't real";
+# p a.toJadenCase(str)
+# #"How Can Mirrors Be Real If Our Eyes Aren't Real" 
