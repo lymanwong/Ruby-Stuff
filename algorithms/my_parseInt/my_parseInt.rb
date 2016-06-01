@@ -15,11 +15,20 @@ It should assume that all numbers are not signed and written in base 10
 =end
 
 def my_parse_int(string)
-  #your code here, return the string "NaN" when the input is not an integer value
+  collection = Array.new
+  elements = string.split(' ')
+  elements.each do |element|
+  	if element =~ /\D/
+  		return "NaN"
+  	else
+  		collection << element.to_i
+  	end
+  end
+  	return collection[0]
 end
 
-my_parse_int("1") #1
-my_parse_int("  1 ") #1
-my_parse_int("08") #8
-my_parse_int("5 friends") #"NaN"
-my_parse_int("16.5") #"NaN"
+p my_parse_int("1") #1
+p my_parse_int("  1 ") #1
+p my_parse_int("08") #8
+p my_parse_int("5 friends") #"NaN"
+p my_parse_int("16.5") #"NaN"
