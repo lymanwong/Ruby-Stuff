@@ -14,21 +14,40 @@ For all other strings (including the ones representing float values), it should 
 It should assume that all numbers are not signed and written in base 10
 =end
 
+# def my_parse_int(string)
+#   collection = Array.new
+#   elements = string.split(' ')
+#   elements.each do |element|
+#   	if element =~ /\D/
+#   		return "NaN"
+#   	else
+#   		collection << element.to_i
+#   	end
+#   end
+#   	return collection[0]
+# end
+
 def my_parse_int(string)
-  collection = Array.new
-  elements = string.split(' ')
-  elements.each do |element|
-  	if element =~ /\D/
-  		return "NaN"
-  	else
-  		collection << element.to_i
-  	end
+  noSpaceString = string.gsub /\s/, ''
+  if noSpaceString =~ /\D/
+    return "NaN"
+  else
+    if string.split(" ").length > 1
+      return "NaN"
+    else
+      return string.to_i
+    end
   end
-  	return collection[0]
 end
+
+#note: need to create a regex to see if there are letters
+# if letters, return NaN
+# else pull out number
 
 p my_parse_int("1") #1
 p my_parse_int("  1 ") #1
 p my_parse_int("08") #8
 p my_parse_int("5 friends") #"NaN"
 p my_parse_int("16.5") #"NaN"
+p my_parse_int("1 1") #"NaN"
+p my_parse_int("1 2 3") #"NaN"
