@@ -22,10 +22,16 @@ dictionary = [ 'abnormal',
   'ball' ]
 
 def autocomplete(input, dictionary)
-  #your code here
+	words = Array.new
+  dictionary.each do |word|
+  	if word.include?(input)
+  		words << word
+  	end
+  end
+  return words[0,5]
 end
 
-autocomplete('ai', dictionary) 
+p autocomplete('ai', dictionary) 
 #['airplane','airport']
-autocomplete('a', dictionary)
+p autocomplete('a', dictionary)
 #['abnormal','arm-wrestling','absolute','airplane','airport']
