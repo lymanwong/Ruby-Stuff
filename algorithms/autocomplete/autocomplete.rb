@@ -21,17 +21,27 @@ dictionary = [ 'abnormal',
   'apple',
   'ball' ]
 
+dictionary2 = ['Nopesville',
+	'Green',
+	'Narnia'
+]
+
 def autocomplete(input, dictionary)
-	words = Array.new
+  words = Array.new
+  newinput = (input.gsub(/[^a-zA-Z]/, '')).downcase
   dictionary.each do |word|
-  	if word.include?(input)
+  	word = (word.gsub(/[^a-zA-Z]/, ''))
+  	if word[0,newinput.length].downcase== newinput[0,newinput.length]
   		words << word
   	end
   end
   return words[0,5]
 end
 
-p autocomplete('ai', dictionary) 
-#['airplane','airport']
-p autocomplete('a', dictionary)
-#['abnormal','arm-wrestling','absolute','airplane','airport']
+# p autocomplete('ai', dictionary) 
+# #['airplane','airport']
+# p autocomplete('a', dictionary)
+# #['abnormal','arm-wrestling','absolute','airplane','airport']
+
+p autocomplete('n~!@\#$%^&*()_+1234567890ope', dictionary2)
+#['Nopesville']
