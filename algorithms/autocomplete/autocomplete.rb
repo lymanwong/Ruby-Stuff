@@ -31,7 +31,7 @@ def autocomplete(input, dictionary)
   newinput = (input.gsub(/[^a-zA-Z]/, '')).downcase
   dictionary.each do |word|
   	word = (word.gsub(/[^a-zA-Z]/, ''))
-  	if word[0,newinput.length].downcase== newinput[0,newinput.length]
+  	if word[0,newinput.length].downcase == newinput[0,newinput.length]
   		words << word
   	end
   end
