@@ -26,14 +26,26 @@ dictionary2 = ['Nopesville',
 	'Narnia'
 ]
 
+# def autocomplete(input, dictionary)
+#   words = Array.new
+#   newinput = (input.gsub(/[^a-zA-Z]/, '')).downcase
+#   dictionary.each do |word|
+#   	word = (word.gsub(/[^a-zA-Z]/, ''))
+#   	if word[0,newinput.length].downcase == newinput[0,newinput.length]
+#   		words << word
+#   	end
+#   end
+#   return words[0,5]
+# end
+
 def autocomplete(input, dictionary)
   words = Array.new
-  newinput = (input.gsub(/[^a-zA-Z]/, '')).downcase
+  newInput = (input.gsub(/[^a-zA-Z]/, '')).downcase
   dictionary.each do |word|
-  	word = (word.gsub(/[^a-zA-Z]/, ''))
-  	if word[0,newinput.length].downcase == newinput[0,newinput.length]
-  		words << word
-  	end
+    newWord = (word.gsub(/[^a-zA-Z]/, ''))
+    if newWord[0,newInput.length].downcase == newInput[0,newInput.length]
+      words << word
+    end
   end
   return words[0,5]
 end
