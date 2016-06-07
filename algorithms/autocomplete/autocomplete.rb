@@ -38,22 +38,32 @@ dictionary2 = ['Nopesville',
 #   return words[0,5]
 # end
 
+# def autocomplete(input, dictionary)
+#   words = Array.new
+#   newInput = (input.gsub(/[^a-zA-Z]/, '')).downcase
+#   dictionary.each do |word|
+#     newWord = (word.gsub(/[^a-zA-Z]/, ''))
+#     if newWord[0,newInput.length].downcase == newInput[0,newInput.length]
+#       words << word
+#     end
+#   end
+#   return words[0,5]
+# end
+
 def autocomplete(input, dictionary)
   words = Array.new
-  newInput = (input.gsub(/[^a-zA-Z]/, '')).downcase
   dictionary.each do |word|
-    newWord = (word.gsub(/[^a-zA-Z]/, ''))
-    if newWord[0,newInput.length].downcase == newInput[0,newInput.length]
+    if (word.gsub(/[^a-zA-Z]/, '')).downcase.start_with? (input.gsub(/[^a-zA-Z]/, '')).downcase
       words << word
     end
   end
-  return words[0,5]
+  return words.first(5)
 end
 
-# p autocomplete('ai', dictionary) 
+p autocomplete('ai', dictionary) 
 # #['airplane','airport']
-# p autocomplete('a', dictionary)
-# #['abnormal','arm-wrestling','absolute','airplane','airport']
+p autocomplete('a', dictionary)
+# ['abnormal','arm-wrestling','absolute','airplane','airport']
 
 p autocomplete('n~!@\#$%^&*()_+1234567890ope', dictionary2)
 #['Nopesville']
